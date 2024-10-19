@@ -1,0 +1,30 @@
+/*
+In this Kata, you will be given a string and your task will be to return a list of ints detailing the count of uppercase letters, lowercase, numbers and special characters (everything else), as follows.
+
+The order is: uppercase letters, lowercase letters, numbers and special characters.
+
+"*'&ABCDabcde12345" --> [ 4, 5, 5, 3 ]
+*/
+//ans 
+
+ int upperCaseCount = 0;
+  int lowerCaseCount = 0;
+  int numberCount = 0;
+  int specialCount = 0;
+
+  // Iterate through each character in the string
+  for (int i = 0; i < s.length; i++) {
+    String char = s[i];
+    if (char.contains(RegExp(r'[A-Z]'))) {
+      upperCaseCount++; // Count uppercase letters
+    } else if (char.contains(RegExp(r'[a-z]'))) {
+      lowerCaseCount++; // Count lowercase letters
+    } else if (char.contains(RegExp(r'\d'))) {
+      numberCount++; // Count numbers
+    } else {
+      specialCount++; // Count special characters
+    }
+  }
+
+  // Return the counts in the order: uppercase, lowercase, numbers, special characters
+  return [upperCaseCount, lowerCaseCount, numberCount, specialCount];
